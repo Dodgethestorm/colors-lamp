@@ -1,3 +1,27 @@
+# COLORS LAMP Application
+
+A small web app from COP 4331. After login, a user can add named colors and search colors stored for their account. It runs on a LAMP stack (Linux, Apache, MySQL, PHP) with a plain HTML/CSS/JavaScript frontend.
+
+## Technologies
+- Linux (DigitalOcean Droplet)
+- Apache
+- MySQL
+- PHP
+- HTML, CSS, JavaScript
+
+## How to run and access
+Open `http://YOUR_DOMAIN` in a browser (HTTP). Log in with a user that exists in the `Users` table. Add a color, then search for it.
+
+Use the same host in the address bar and in `urlBase`. Mixing `www` and non-`www` causes a CORS error.
+
+## Assumptions and limitations
+- No sign-up page; users are inserted with SQL.
+- Teaching demo: no HTTPS requirement.
+- Database credentials stay in a server-only `database.php`, not in this repo.
+
+## AI usage
+AI assistance was used to organize the repository and write documentation. Application behavior follows the course COLORS lab materials.
+
 On the server these files live under `/var/www/html` (`public/` contents at the web root, `api/` as `LAMPAPI/`).
 
 ## High-level setup
