@@ -1,0 +1,37 @@
+@startuml usecase
+!pragma layout smetana
+left to right direction
+skinparam packageStyle rectangle
+
+actor "User" as User
+
+rectangle "COLORS Web Application" {
+  usecase "Login" as UC1
+  usecase "Add Color" as UC2
+  usecase "Search Colors" as UC3
+  usecase "Logout" as UC4
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+
+UC2 ..> UC1 : <<include>>
+UC3 ..> UC1 : <<include>>
+
+note right of UC1
+  Validates credentials
+  against Users table
+end note
+
+note right of UC2
+  Stores color name
+  for the logged-in user
+end note
+
+note right of UC3
+  Returns matching colors
+  for the logged-in user
+end note
+@enduml

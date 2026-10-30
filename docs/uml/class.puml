@@ -1,0 +1,54 @@
+@startuml class
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+
+class User {
+  +ID : int
+  +FirstName : varchar
+  +LastName : varchar
+  +Login : varchar
+  +Password : varchar
+}
+
+class Color {
+  +ID : int
+  +Name : varchar
+  +UserID : int
+}
+
+class LoginEndpoint {
+  +getRequestInfo()
+  +returnWithInfo()
+  +returnWithError()
+}
+
+class AddColorEndpoint {
+  +getRequestInfo()
+  +returnWithError()
+}
+
+class SearchColorsEndpoint {
+  +getRequestInfo()
+  +returnWithInfo()
+  +returnWithError()
+}
+
+class Frontend {
+  +doLogin()
+  +addColor()
+  +searchColor()
+  +doLogout()
+  +saveCookie()
+  +readCookie()
+}
+
+User "1" -- "0..*" Color : owns >
+
+LoginEndpoint ..> User : queries
+AddColorEndpoint ..> Color : inserts
+SearchColorsEndpoint ..> Color : queries
+
+Frontend ..> LoginEndpoint : POST JSON
+Frontend ..> AddColorEndpoint : POST JSON
+Frontend ..> SearchColorsEndpoint : POST JSON
+@enduml

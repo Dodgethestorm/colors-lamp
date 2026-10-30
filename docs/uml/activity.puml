@@ -1,0 +1,41 @@
+@startuml activity
+!pragma layout smetana
+start
+
+:Open index.html;
+
+:Enter username and password;
+
+:Click "Do It" (doLogin);
+
+:POST /LAMPAPI/Login.php;
+
+if (Login successful?) then (yes)
+  :Save cookie with userId, firstName, lastName;
+  :Redirect to color.html;
+  
+  fork
+    :Enter new color name;
+    :Click Add (addColor);
+    :POST /LAMPAPI/AddColor.php;
+    :Show "Color has been added";
+  fork again
+    :Enter search term;
+    :Click Search (searchColor);
+    :POST /LAMPAPI/SearchColors.php;
+    if (Results found?) then (yes)
+      :Display matching color names;
+    else (no)
+      :Show error / no results;
+    endif
+  end fork
+  
+  :Click Logout (doLogout);
+  :Clear cookie;
+  :Redirect to index.html;
+else (no)
+  :Show "User/Password combination incorrect";
+endif
+
+stop
+@enduml
