@@ -1,0 +1,28 @@
+{
+  "name": "colors-lamp",
+  "private": true,
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "script"
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "no-undef": "off",
+      "no-mixed-spaces-and-tabs": "off",
+      "no-tabs": "off",
+      "no-trailing-spaces": "off",
+      "indent": "off",
+      "quotes": "off",
+      "semi": "off",
+      "comma-dangle": "off",
+      "no-empty": "off",
+      "no-redeclare": "off"
+    }
+  }
+}
