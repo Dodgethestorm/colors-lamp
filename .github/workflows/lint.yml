@@ -1,13 +1,13 @@
-name: Lint
+name: Lint and Test
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  lint:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,3 +30,9 @@ jobs:
 
       - name: Lint JavaScript
         run: eslint "public/**/*.js"
+
+      - name: Install test dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
